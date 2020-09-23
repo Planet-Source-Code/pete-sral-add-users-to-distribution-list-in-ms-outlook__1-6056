@@ -1,0 +1,526 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0062)http://support.microsoft.com/support/kb/articles/Q178/7/87.ASP -->
+<HTML><HEAD><TITLE>Q178787 - HOWTO: Work with Distribution Lists Using Collaboration Data Objects from Visual Basic</TITLE>
+<META content="text/html; charset=iso-8859-1" http-equiv=CONTENT-Type>
+<META 
+content='(PICS-1.1 "http://www.rsac.org/ratingsv01.html" l gen true comment "RSACi North America Server" by "Inet@microsoft.com" for "http://support.microsoft.com" on "1998.02.17T12:28-0800" r (n 0 s 0 v 0 l 0))' 
+http-equiv=PICS-Label>
+<META content=EN-US name=ms.locale>
+<META content="Support; KB Article" name=Category>
+<META content=Support name=Premium>
+<META content="Support; KB; mapi" name=KBArea>
+<META content=Q178787 name=KBID>
+<META 
+content="HOWTO: Work with Distribution Lists Using Collaboration Data Objects from Visual Basic" 
+name=KBTitle>
+<META 
+content="This article provides several Visual Basic based functions that demonstrate&#13;&#10;how to create and administer Distribution Lists (DL) using Collaboration&#13;&#10;Data Objects (CDO)." 
+name=Description>
+<META content=mapi name=Product>
+<META content="January 5, 1998" name=KBCreate>
+<META content="November 3, 1999" name=KBModify>
+<META content="January 8, 1998" name=EditDate>
+<META content="" name=Question>
+<META content=WINDOWS:1.1,1.21 name=Versions>
+<META content="" name=Component>
+<META content="" name=Technology>
+<META content="176916 171440" name=Links>
+<META content="kbcode kbCDO110 kbCDO121 kbMsg kbVBp kbGrpMsg" name=Keywords>
+<META content=WINDOWS name=Platform>
+<META content="" name=Hardware>
+<META content="" name=SolutionType>
+<META content=kbhowto name=IssueType>
+<META content=qnumb name=BoilerPlate>
+<META content="" name=ProducedView>
+<META content=ActMsg name=QUERYWORDS>
+<META content=OleMsg name=QUERYWORDS><LINK 
+href="Q178787 - HOWTO Work with Distribution Lists Using Collaboration Data Objects from Visual Basic_files/style.css" 
+rel=STYLESHEET type=text/css>
+<META content="MSHTML 5.00.2314.1000" name=GENERATOR></HEAD>
+<BODY bgColor=#ffffff leftMargin=0 rightMargin=0 topMargin=0 MARGINWIDTH="0" 
+MARGINHEIGHT="0"><!--TOOLBAR_START--><A name=TOP><!-- Start: ToolBar V2.0-->
+<SCRIPT language=JavaScript 
+src="Q178787 - HOWTO Work with Distribution Lists Using Collaboration Data Objects from Visual Basic_files/toolbar.js"></SCRIPT>
+
+<SCRIPT language=JavaScript 
+src="Q178787 - HOWTO Work with Distribution Lists Using Collaboration Data Objects from Visual Basic_files/global.js"></SCRIPT>
+
+<SCRIPT language=JavaScript 
+src="Q178787 - HOWTO Work with Distribution Lists Using Collaboration Data Objects from Visual Basic_files/gn_local.js"></SCRIPT>
+<!-- Start: ToolBar for down-level browsers--><SPAN id=TBDownLevelDiv>
+<TABLE bgColor=#ffffff border=0 cellPadding=0 cellSpacing=0 width="100%">
+  <TBODY>
+  <TR>
+    <TD height=60 rowSpan=2 vAlign=top width="100%"><A 
+      href="http://support.microsoft.com/isapi/gosupport.asp?target=/directory/"><IMG 
+      alt="Microsoft Product Support Services" border=0 height=60 
+      src="Q178787 - HOWTO Work with Distribution Lists Using Collaboration Data Objects from Visual Basic_files/logo_support.jpeg" 
+      width=240></A></TD>
+    <TD align=right height=20 vAlign=top><IMG border=0 height=20 
+      src="Q178787 - HOWTO Work with Distribution Lists Using Collaboration Data Objects from Visual Basic_files/curve.gif" 
+      width=18></TD>
+    <TD align=right bgColor=#000000 colSpan=2 height=20 noWrap 
+      vAlign=center><FONT color=#ffffff face="Verdana, Arial" 
+      size=1><B>&nbsp;&nbsp;<A 
+      href="http://support.microsoft.com/isapi/gomscom.asp?target=/products/" 
+      style="COLOR: #ffffff; TEXT-DECORATION: none" target=_top><FONT 
+      color=#ffffff>All Products</FONT></A>&nbsp;&nbsp;<FONT 
+      color=#ffffff>|</FONT> &nbsp;&nbsp;<A 
+      href="http://support.microsoft.com/isapi/gosupport.asp?target=/directory/default.asp?fr=0&amp;sd=gn" 
+      style="COLOR: #ffffff; TEXT-DECORATION: none" target=_top><FONT 
+      color=#ffffff>Support</FONT></A>&nbsp;&nbsp;<FONT color=#ffffff>|</FONT> 
+      &nbsp;&nbsp;<A 
+      href="http://support.microsoft.com/isapi/gosearch.asp?target=/" 
+      style="COLOR: #ffffff; TEXT-DECORATION: none" target=_top><FONT 
+      color=#ffffff>Search</FONT></A>&nbsp;&nbsp;<FONT color=#ffffff>|</FONT> 
+      &nbsp;&nbsp;<A 
+      href="http://support.microsoft.com/isapi/gomscom.asp?target=/" 
+      style="COLOR: #ffffff; TEXT-DECORATION: none" target=_top><FONT 
+      color=#ffffff>microsoft.com Home</FONT></A>&nbsp;&nbsp; </B></FONT></TD></TR>
+  <TR>
+    <TD height=40 vAlign=top width=19><IMG border=0 height=40 
+      src="Q178787 - HOWTO Work with Distribution Lists Using Collaboration Data Objects from Visual Basic_files/1ptrans.gif" 
+      width=19></TD>
+    <TD align=right colSpan=2 height=40 noWrap vAlign=top><A 
+      href="http://support.microsoft.com/isapi/gomscom.asp?target=/" 
+      target=_top><IMG alt=Microsoft border=0 height=40 
+      src="Q178787 - HOWTO Work with Distribution Lists Using Collaboration Data Objects from Visual Basic_files/mslogo.gif" 
+      width=112></A></TD></TR><!-- Start: Black Line Spacer  -->
+  <TR>
+    <TD bgColor=#000000 colSpan=4 height=1 noWrap></TD></TR><!-- End: Black Line Spacer -->
+  <TR><!-- Start: Local menus -->
+    <TD bgColor=#000000 colSpan=4 height=20 noWrap vAlign=center><FONT 
+      color=#ffffff face="Verdana, Arial" size=1><B>&nbsp;&nbsp;<A 
+      href="http://support.microsoft.com/isapi/gosupport.asp?target=/directory/default.asp?fr=0&amp;sd=gn" 
+      style="COLOR: #ffffff; TEXT-DECORATION: none" target=_top><FONT 
+      color=#ffffff>Support Home</FONT></A>&nbsp;&nbsp;<FONT 
+      color=#ffffff>|</FONT> &nbsp;&nbsp;<A 
+      href="http://support.microsoft.com/isapi/gosupport.asp?target=/directory/self.asp?fr=0&amp;sd=gn" 
+      style="COLOR: #ffffff; TEXT-DECORATION: none" target=_top><FONT 
+      color=#ffffff>Self Support</FONT></A>&nbsp;&nbsp;<FONT 
+      color=#ffffff>|</FONT> &nbsp;&nbsp;<A 
+      href="http://support.microsoft.com/isapi/gosupport.asp?target=/directory/assisted.asp?fr=0&amp;sd=gn" 
+      style="COLOR: #ffffff; TEXT-DECORATION: none" target=_top><FONT 
+      color=#ffffff>Assisted Support</FONT></A>&nbsp;&nbsp;<FONT 
+      color=#ffffff>|</FONT> &nbsp;&nbsp;<A 
+      href="http://support.microsoft.com/isapi/gosupport.asp?target=/directory/customer.asp?fr=0&amp;sd=gn" 
+      style="COLOR: #ffffff; TEXT-DECORATION: none" target=_top><FONT 
+      color=#ffffff>Custom Support</FONT></A>&nbsp;&nbsp;<FONT 
+      color=#ffffff>|</FONT> &nbsp;&nbsp;<A 
+      href="http://support.microsoft.com/isapi/gosupport.asp?target=/directory/ww.asp?fr=0&amp;sd=gn" 
+      style="COLOR: #ffffff; TEXT-DECORATION: none" target=_top><FONT 
+      color=#ffffff>Worldwide Support</FONT></A>&nbsp;&nbsp;<FONT 
+      color=#ffffff>|</FONT> </B></FONT></TD><!-- End: Local menus --></TR><!-- Start: Black Line Spacer  -->
+  <TR>
+    <TD bgColor=#000000 colSpan=4 height=1 noWrap></TD></TR><!-- End: Black Line Spacer --></TBODY></TABLE></SPAN><!-- End: ToolBar For down-level browsers-->
+<SCRIPT language=JavaScript>
+<!--// Hide from old browsers
+	var ToolBar_Supported = ToolBar_Supported;
+	if (ToolBar_Supported != null && ToolBar_Supported == true)
+	{
+		TBDownLevelDiv.style.display = "none";
+		drawToolbar();
+	}
+//-->
+</SCRIPT>
+<!-- End: ToolBar V2.0--><!--TOOLBAR_EXEMPT--><!--TOOLBAR_END-->
+<TABLE border=0 cellPadding=0 cellSpacing=0 width="100%">
+  <TBODY>
+  <TR>
+    <TD vAlign=top>
+      <CENTER>
+      <TABLE border=0 cellPadding=0 cellSpacing=0 width="95%">
+        <TBODY>
+        <TR>
+          <TD vAlign=top><FONT face="Verdana, Arial, Helvetica" size=2>
+            <TABLE>
+              <TBODY>
+              <TR>
+                <TD>
+                  <H1>HOWTO: Work with Distribution Lists Using Collaboration 
+                  Data Objects from Visual Basic</H1></TD></TR></TBODY></TABLE>
+            <HR>
+            The information in this article applies to:<BR>
+            <UL>
+              <LI>Collaboration Data Objects (CDO), versions 1.1, 1.21</LI></UL>
+            <HR>
+            <BR>
+            <H2>SUMMARY</H2>
+            <P>This article provides several Visual Basic based functions that 
+            demonstrate how to create and administer Distribution Lists (DL) 
+            using Collaboration Data Objects (CDO). </P><BR>
+            <H2>MORE INFORMATION</H2>
+            <P>A brief description of the functionality for each function is 
+            included followed by a Sub Main that makes use of most of these 
+            functions. See the body of each function below for more details on a 
+            specific function: <PRE class=CODESAMP>   '*******************************************************************
+   ' Distribution List Functions
+   '-------------------------------------------------------------------
+   '
+   ' Functions and Procedures in this Module
+   '*******************************************************************
+   ' 1. AddressBookExists: Determines if a specific AddressList Exists
+   '                       - for example, PAB, GAL, and etc.
+   ' 2. AddDLToPAB:        Creates a new Distribution List (DL).
+   ' 3. AddUserToDL:       Used to add a new recipient to a DL.
+   ' 4. AddUserToPAB:      Add a new user to the MAPI address list.
+   ' 5. DeleteUserFromDL:  Removes a recipient from a DL. Also contains
+   '                       logic to check if a specific recipient is on
+   '                       a DL.
+   ' 6. GetDLOwner:        Get the Owner of a Distribution List.
+   '
+   '*******************************************************************
+   'REMEMBER: You still need the pertinent rights to be able to
+   'manipulate MAPI AddressList objects.
+   '
+   '*******************************************************************
+   Public objSession As MAPI.Session
+   '*******************************************************************
+   ' A conglomerate function that demonstrates use of several of the
+   ' other functions in this module. Look through these functions for
+   ' the string "TO DO:". The functions will work as is, but will not
+   ' yield meaningful content until they are customized as noted on
+   ' these lines.
+   '*******************************************************************
+   Public Sub Main()
+     Dim oAddressList As AddressList
+     Dim oAddressEntry As AddressEntry
+     Dim oNewUserAddressEntry As AddressEntry
+     If MapiLogon() = True Then
+        Set oAddressList = AddressBookExists("Personal Address Book")
+        If Not oAddressList Is Nothing Then
+          'TO DO: You will want to customize the string values
+          'in the next two lines.
+           Set oNewUserAddressEntry = _
+             AddUserToPAB(oAddressList, "Custom New User")
+           Set oAddressEntry = AddDLToPAB(oAddressList, "My Custom DL")
+
+           If Not oAddressEntry Is Nothing Then
+             'TO DO: Recipient to be added on next line should be
+             'customized.
+             If AddUserToDL(oAddressEntry, "MyNewDLMember") = True Then
+                MsgBox "Added new user and DL, and new member in the DL"
+             Else
+                MsgBox "Adding a user to the DL didn't work"
+             End If
+           Else
+               MsgBox "Custom DL wasn't added to the Personal Address Book"
+           End If
+           Exit Sub
+          Else
+            MsgBox "There is no PAB Service installed on this machine"
+            Exit Sub
+        End If
+       End If
+     End Sub
+
+   '*******************************************************************
+   ' FUNCTION     - AddressBookExists
+   '-------------------------------------------------------------------
+   ' PARAMETERS   - sAddressBookName as string and can be one of two
+   '                values:
+   '               "Personal Address Book" or "Global AddressList".
+   ' DESCRIPTION  - Determines if the Personal Address Book Service is
+   '                installed on the current computer.
+   ' RETURN VALUE - An AddressList object pointing to the addresslist or
+   '                nothing if it does not exist.
+   '*******************************************************************
+   Public Function AddressBookExists(sAddressBookName As String) _
+   As AddressList
+      Dim oAddressList As AddressList
+      For Each oAddressList In objSession.AddressLists
+      If oAddressList.Name = sAddressBookName Then
+      Set AddressBookExists = oAddressList
+      Exit Function
+      End If
+      Next oAddressList
+      Set AddressBookExists = Nothing
+      End Function
+
+   '*******************************************************************
+   ' FUNCTION     - AddDLToPAB
+   '-------------------------------------------------------------------
+   ' PARAMETERS   - oAddressList as AddressList, sDLName As String (The
+   '                name of the new Distribution List to create.)
+   ' DESCRIPTION  - Add a new Distribution List to the MAPI address list
+   '                specified in first parameter.
+   ' RETURN VALUE - An AddressEntry object pointing to the address entry
+   '                or nothing if it does not exist.
+   '*******************************************************************
+   Public Function AddDLToPAB(oAddressList As AddressList, _
+   sDLName As String) As AddressEntry
+      Dim oAddressEntries As AddressEntries
+      Dim oNewAddressEntry As AddressEntry
+      On Error GoTo Trp_AddDLToPAB:
+      Set oAddressEntries = oAddressList.AddressEntries
+      Set oNewAddressEntry = oAddressEntries.Add("MAPIPDL", sDLName)
+      oNewAddressEntry.Update
+      Set AddDLToPAB = oNewAddressEntry
+      Exit Function
+   Trp_AddDLToPAB:
+      Set Trp_AddDLToPAB = Nothing
+      Exit Function
+   End Function
+
+   '*******************************************************************
+   ' FUNCTION     - AddUserToDL
+   '-------------------------------------------------------------------
+   ' PARAMETERS   - oDL As AddressEntry (This is the object reference to
+   '                the Distribution List the user is being added to.),
+   '                sUsername As String (The name of the new member to
+   '                be added to the Distribution List.)
+   ' DESCRIPTION  - Adds a new recipient to a Distribution List.
+   ' RETURN VALUE - A Boolean value specifying whether or not adding the
+   '                user was successful.
+   '*******************************************************************
+   Public Function AddUserToDL(oDL As AddressEntry, sUserName As String) _
+   As Boolean
+   Dim oNewMember As AddressEntry
+   On Error GoTo Trp_AddUserToDL:
+   'TO DO: Customize for your new DL member.
+   Set oNewMember = oDL.Members.Add("SMTP", "MyAddressName")
+
+   'You need to fill in all your own data here. The data below is
+    'for sample purposes. This is not an inclusive list of potential
+    'fields, and of the fields represented here, not all must be
+    'populated for a viable address entry.
+    With oNewMember
+      'TO DO: Obviously all of these should be modified.
+      .Address = "MySMTPAddress@company.com"
+      'Generic Comments Field.
+      .Fields(ActMsgPR_COMMENT) = "My notes here."
+      'Business Generic Fields.
+      .Fields(ActMsgPR_COMPANY_NAME) = "Microsoft Corporation"
+      .Fields(ActMsgPR_DEPARTMENT_NAME) = "Microsoft Technical Support"
+      .Fields(ActMsgPR_MANAGER_NAME) = "John Doe"
+      .Fields(ActMsgPR_ASSISTANT) = "Jane Doe"
+      .Fields(ActMsgPR_GIVEN_NAME) = "Bill"
+      .Fields(ActMsgPR_MIDDLE_NAME) = "A."
+      .Fields(ActMsgPR_SURNAME) = "Smith"
+      .Fields(ActMsgPR_TITLE) = "Mr."
+      .Fields(ActMsgPR_EMAIL_ADDRESS) = "mymail@Microsoft.com"
+      'Business Address Fields.
+      .Fields(ActMsgPR_OFFICE_LOCATION) = "Building 13"
+      .Fields(ActMsgPR_BUSINESS_ADDRESS_STREET) = "1 Microsoft Way"
+      .Fields(ActMsgPR_BUSINESS_ADDRESS_CITY) = "Redmond"
+      .Fields(ActMsgPR_BUSINESS_ADDRESS_STATE_OR_PROVINCE) = "WA"
+      .Fields(ActMsgPR_BUSINESS_ADDRESS_POSTAL_CODE) = "98052"
+      .Fields(ActMsgPR_BUSINESS_ADDRESS_COUNTRY) = "USA"
+      'Telephone Number Fields.
+      .Fields(ActMsgPR_BUSINESS_FAX_NUMBER) = "425-555-0329"
+      .Fields(ActMsgPR_BUSINESS_TELEPHONE_NUMBER) = "425-555-8080"
+      .Fields(ActMsgPR_BUSINESS2_TELEPHONE_NUMBER) = "425-555-8081"
+      .Fields(ActMsgPR_CALLBACK_TELEPHONE_NUMBER) = "425-555-8082"
+      .Fields(ActMsgPR_CAR_TELEPHONE_NUMBER) = "206-555-0000"
+      .Fields(ActMsgPR_ASSISTANT_TELEPHONE_NUMBER) = "425-555-8083"
+      .Fields(ActMsgPR_COMPANY_MAIN_PHONE_NUMBER) = "425-882-8080"
+      .Fields(ActMsgPR_MOBILE_TELEPHONE_NUMBER) = "425-555-8084"
+      .Fields(ActMsgPR_PAGER_TELEPHONE_NUMBER) = "N/A"
+      .Fields(ActMsgPR_PRIMARY_FAX_NUMBER) = "425-555-8085"
+      'Home detail fields.
+      .Fields(ActMsgPR_HOME_ADDRESS_STREET) = "1234 My Street"
+      .Fields(ActMsgPR_HOME_ADDRESS_CITY) = "MyTown"
+      .Fields(ActMsgPR_HOME_ADDRESS_STATE_OR_PROVINCE) = "WA"
+      .Fields(ActMsgPR_HOME_ADDRESS_COUNTRY) = "USA"
+      .Fields(ActMsgPR_HOME_FAX_NUMBER) = "425-555-0001"
+      .Fields(ActMsgPR_HOME_TELEPHONE_NUMBER) = "425-555-0002"
+      .Fields(ActMsgPR_HOME2_TELEPHONE_NUMBER) = "N/A"
+
+      .Update
+     End With
+
+     AddUserToDL = True
+     Exit Function
+   Trp_AddUserToDL:
+     AddUserToDL = False
+     Exit Function
+   End Function
+
+   '*********************************************************************
+   ' FUNCTION     - AddUserToPAB
+   '---------------------------------------------------------------------
+   ' PARAMETERS   - oAddressList as AddressList, sDLName As String (The
+   '                name of the new Distribution List to create.)
+   ' DESCRIPTION  - Add a new user to the MAPI address list specified in
+   '                first parameter.
+   ' RETURN VALUE - A As AddressEntry object pointing to the address entry
+   '                or nothing if it does not exist.
+   '*********************************************************************
+   Public Function AddUserToPAB(oAddressList As AddressList, sUserName _
+    As String) As AddressEntry
+    Dim oAddressEntries As AddressEntries
+    Dim oNewAddressEntry As AddressEntry
+    On Error GoTo Trp_AddDLToPAB:
+    Set oAddressEntries = oAddressList.AddressEntries
+    Set oNewAddressEntry = oAddressEntries.Add("SMTP", sUserName)
+    'TO DO: Change address in next line.
+    oNewAddressEntry.Address = "Me@me.com"
+    oNewAddressEntry.Update
+    Set AddUserToPAB = oNewAddressEntry
+    Exit Function
+    Trp_AddDLToPAB:
+    Set Trp_AddDLToPAB = Nothing
+    Exit Function
+    End Function
+
+   '*********************************************************************
+   ' PROCEDURE    - DeleteUserFromDL
+   '---------------------------------------------------------------------
+   ' PARAMETERS   - None
+   ' DESCRIPTION  - Remove a member from a Distribution List, which the
+   '                user selects from the Phonebook.
+   '*********************************************************************
+   Public Sub DeleteUserFromDL()
+      'Procedure Level Variables.
+       Dim oAddressEntries As AddressEntries
+       Dim oAddressList As AddressList
+       Dim oRecipients As Recipients
+       Dim oRecipient As Recipient
+       Dim oAddressEntry As AddressEntry
+       Dim oMember As AddressEntry
+       'Get the DL from the AddressBook.
+       Set oRecipients = objSession.AddressBook(Title:="Select Attendees")
+       If oRecipients.Count = 0 Or oRecipients.Count &gt; 1 Then
+          MsgBox "Please Select just one member of the Distribution List"
+          Exit Sub
+       End If
+       Set oRecipient = oRecipients.Item(1)
+       Set oAddressEntry = oRecipient.AddressEntry
+       Set oAddressEntries = oAddressEntry.Members
+       'Cycle through the DL until you find the user you seek.
+       For Each oMember In oAddressEntry.Members
+          If oMember.IsSameAs(oRecipient) Then
+             'Or you could say If oMember.Name = "TheRecipsDisplayName"
+             oMember.Delete
+             Set oMember = Nothing
+          End If
+       Next oMember
+    End Sub
+
+   '*********************************************************************
+   ' FUNCTION     - GetDLOwner
+   '---------------------------------------------------------------------
+   ' PARAMETERS   - oSubordinate As AddressEntry (The object reference to
+   '                the Owner of the DL.)
+   ' DESCRIPTION  - Gets an address entry's Owner. This is relevant only
+   '                to the Global Address List since you are always the
+   '                owner of Personal Address Book (PAB) entries.
+   ' RETURN VALUE - A String value of the owners name.
+   '*********************************************************************
+
+    Public Function GetDLOwner(oSubordinate As AddressEntry) As String
+     ' IMPORTANT: This code assumes that the Owner of the
+     ' Distribution list is stored in PR_EMS_AB_EXTENSION_ATTRIBUTE_3.
+     ' This is not always where the Owner is stored, if it is stored
+     ' at all. You should verify where the Owner is stored on your
+     ' system and change the Field value that is being retrieved by
+     ' this code.
+      GetDLOwner = oSubordinate.Fields(&amp;H802F001E).Value
+    End Function
+
+   '*********************************************************************
+   ' FUNCTION     - MapiLogon
+   '---------------------------------------------------------------------
+   ' PARAMETERS   - None.
+   ' DESCRIPTION  - Creates and Logs onto a MAPI Session according to the
+   '                parameters passed when calling the Logon method. The
+   '                sample below passes no parameters and uses all default
+   '                values.
+   ' RETURN VALUE - Boolean indicating success.
+   '*********************************************************************
+   Public Function MapiLogon() As Boolean
+     'Create a session and log on -- username and password in profile
+      Set objSession = CreateObject("MAPI.Session")
+      'Change the parameters to valid values for your configuration.
+       objSession.Logon
+       MapiLogon = True
+    End Function </PRE>
+            <P></P><BR>
+            <H2>REFERENCES</H2>
+            <P>This sample code is dependent on the CDO library being properly 
+            installed on the target computer. <BR><BR>For information on where 
+            to acquire the most recent version of the CDO library tested for 
+            client-side use, please see the following article in the Microsoft 
+            Knowledge Base: 
+            <BLOCKQUOTE><A class=LINK 
+              href="http://support.microsoft.com/support/kb/articles/Q171/4/40.ASP">Q171440</A> 
+              INFO: Where to Acquire the Collaboration Data Objects Libraries 
+            </BLOCKQUOTE>For additional information about Collaboration Data 
+            Objects versus Active Messaging, please see the following article in 
+            the Microsoft Knowledge Base: 
+            <BLOCKQUOTE><A class=LINK 
+              href="http://support.microsoft.com/support/kb/articles/Q176/9/16.ASP">Q176916</A> 
+              INFO: Active Messaging and Collaboration Data Objects (CDO) 
+            </BLOCKQUOTE>
+            <P></P>
+            <P>Additional query words: ActMsg OleMsg </P>
+            <P>Keywords : kbcode kbCDO110 kbCDO121 kbMsg kbVBp kbGrpMsg 
+            <BR>Version : WINDOWS:1.1,1.21 <BR>Platform : WINDOWS <BR>Issue type 
+            : kbhowto </P><!--CONVLEGACY DELIMITER--></FONT></TD></TR></TBODY></TABLE>
+      <P>
+      <TABLE border=0 cellPadding=0 cellSpacing=0 width="100%">
+        <TBODY>
+        <TR>
+          <TD vAlign=top>
+            <CENTER><BR><FONT face="Verdana, Arial, Helvetica" size=1>Last 
+            Reviewed: November 3, 1999<BR><A 
+            href="http://support.microsoft.com/support/misc/cpyright.asp">© 2000 
+            Microsoft Corporation. All rights reserved. Terms of 
+            Use.</A><BR></FONT></CENTER></TD></TR></TBODY></TABLE></P></CENTER></TD>
+    <TD bgColor=#003399 vAlign=top width=1><IMG border=0 height="100%" 
+      src="D:\NETemp\Downloads\Work with Distribution Lists Using Collaboration Data Objects from Visual Basic\Q178787 - HOWTO Work with Distribution Lists Using Collaboration Data Objects from Visual Basic_files\1ptrans(1).gif" 
+      width=1></TD>
+    <TD vAlign=top width=135>
+      <CENTER>
+      <TABLE border=0 cellPadding=0 cellSpacing=0 width="90%">
+        <TBODY>
+        <TR>
+          <TD vAlign=top><FONT face="Verdana, Arial, Helvetica" size=1><BR>
+            <P>Article ID: Q178787</P>
+            <P><B>Last Reviewed:</B><BR>November 3, 1999 </P>
+            <P>Provided by <A href="http://www.microsoft.com/support/" 
+            target=_top>Microsoft Product Support Services</A>. </P>
+            <P><A 
+            href="http://support.microsoft.com/support/kb/articles/Q178/7/"></A></P>
+            <P>
+            <HR>
+
+            <FORM action=/support/contentvoting/voting_idc.asp method=post 
+            name=VOTED onsubmit="return votingsubmit();"><INPUT name=KBID 
+            type=hidden value=Q178787> <INPUT name=PROD type=hidden 
+            value="Support; KB; mapi"> <INPUT name=KBAREA type=hidden 
+            value="Support; KB; mapi"> <INPUT name=SRV type=hidden 
+            value=support.microsoft.com> <INPUT name=URL type=hidden 
+            value=/support/kb/articles/Q178/7/87.ASP> <INPUT name=SS 
+            type=hidden> Did the information in this article help answer your 
+            question? 
+            <P><INPUT name=VOTE type=radio value=1>Yes<BR><INPUT name=VOTE 
+            type=radio value=2>No<BR><INPUT name=VOTE type=radio value=3>Did not 
+            apply 
+            <P>Please provide additional comments about this information. If you 
+            require a response or technical support, please click <A 
+            href="http://support.microsoft.com/support/contact/default.asp">Contact 
+            Us</A>.<BR>(255 character max) 
+            <P><TEXTAREA cols=13 id=COMMENTS name=COMMENTS rows=4 style="FONT-SIZE: x-small; FONT-STYLE: normal; FONT-VARIANT: normal; FONT-WEIGHT: normal; LINE-HEIGHT: normal" wrap=virtual></TEXTAREA> 
+
+            <P>
+            <CENTER><INPUT alt=Submit border=0 height=32 
+            src="Q178787 - HOWTO Work with Distribution Lists Using Collaboration Data Objects from Visual Basic_files/votesubmit.gif" 
+            type=image width=88> </CENTER>
+            <SCRIPT language=JavaScript>
+<!--//
+function votingsubmit()
+{
+	if((document.VOTED.VOTE[0].checked == false) && (document.VOTED.VOTE[1].checked == false) && (document.VOTED.VOTE[2].checked == false)){
+		alert("Please choose a voting option.");
+		return false;}
+	if(document.VOTED.COMMENTS.value.length > 255){
+		alert("Please reduce the number of characters in your comment.");
+		document.forms[0].COMMENTS.focus();
+		return false;}
+	else return true;
+}
+//-->
+</SCRIPT>
+            </FORM>
+            <P></P></FONT></TD></TR></TBODY></TABLE></CENTER></TD></TR></TBODY></TABLE></A></BODY></HTML>
